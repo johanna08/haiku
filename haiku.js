@@ -1,5 +1,7 @@
 var fs = require("fs");
 var cmudictFile = readCmudictFile('./cmudict.txt');
+var haiku = require('./haiku_generator');
+var createHaiku = haiku.createHaiku;
 
 function readCmudictFile(file){
   return fs.readFileSync(file).toString();
@@ -40,3 +42,6 @@ formatData(cmudictFile);
 module.exports = {
 	wordArr : wordArr
 };
+
+console.log( createHaiku( [ [5], [7], [5] ], wordArr) );
+console.log( createHaiku( [ [2,3], [1, 3, 3], [3,2] ], wordArr ) );
